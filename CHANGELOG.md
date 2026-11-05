@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.2
+
+- A person's name and tags may stand below the face (as before), above it, or to its left or right: open the tags window from the pen or by double-clicking the name, and choose where under the box. With the words on the right, the pen appears on the left. A group drawn round them and the map's frame follow the words. Beside the face a long tag may reach a close neighbour; Below stays the default.
+
 ## 1.3.1
 
 - A tag under a name may be twice as wide as the name, 216 px, before it is cut short; a group's outline and the map's frame widen to fit it.
