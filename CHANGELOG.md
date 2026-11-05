@@ -3,6 +3,10 @@
 ## 1.3.2
 
 - A person's name and tags may stand below the face (as before), above it, or to its left or right: open the tags window from the pen or by double-clicking the name, and choose where under the box. With the words on the right, the pen appears on the left. A group drawn round them and the map's frame follow the words. Beside the face a long tag may reach a close neighbour; Below stays the default.
+- The tags window writes only what you changed, so a side somebody else chose while your window was open is kept, and a Save that changes nothing records no undo step. A second press on the pen while its window is open opens nothing more.
+- After the tags window closes, Ctrl+Z goes to the map's own undo again and the focus returns to the pen. Before, the key fell through to Foundry's undo of the last change on the scene.
+- The tags box is named for screen readers after the window ("Tags for Elena") and reads its hint, and it wears the dialog's field border in dark and high-contrast.
+- A person whose actor is deleted and then brought back under its old id, as when an adventure is imported again, is drawn whole again on every open map.
 
 ## 1.3.1
 
