@@ -1,0 +1,59 @@
+name: Release
+
+# A pushed tag that is a bare version ("1.3.0", never "v1.3.0") builds the module zip and publishes
+# the GitHub release Foundry installs from. The tag must equal module.json's version and the last
+# path segment of its `download` URL, and module.json is committed BEFORE the tag: the step below
+# refuses a tag that disagrees with it, since a release whose zip says one version and whose URL
+# says another is one Foundry will not update to.
+on:
+  push:
+    tags:
+      - "[0-9]*"
+
+# This one writes: the release and its two files. Nothing else.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check the tag against module.json
+        run: |
+          version=$(node -p "require('./module.json').version")
+          download=$(node -p "require('./module.json').download")
+          if [ "$version" != "$GITHUB_REF_NAME" ]; then
+            echo "module.json says $version but the tag is $GITHUB_REF_NAME"; exit 1
+          fi
+          case "$download" in
+            */releases/download/"$GITHUB_REF_NAME"/module.zip) ;;
+            *) echo "module.json's download is $download, which is not this tag's"; exit 1 ;;
+          esac
+
+      # Exactly the nine root items the 1.2.2 zip held. Nothing from node_modules, tests, docs or the
+      # configs: the README's pictures under docs/ are absent from the zip, which Foundry never shows.
+      - name: Zip the module
+        run: zip -r module.zip module.json relationship-map.js module styles templates languages LICENSE README.md CHANGELOG.md
+
+      # The notes are the changelog's own section for this version, from its "## <tag>" heading to the
+      # next "## ". An empty cut (a tag with no section) still releases, with a pointer instead.
+      - name: Cut the release notes from the changelog
+        run: |
+          awk -v tag="$GITHUB_REF_NAME" '$0 == "## " tag { on = 1; next } /^## / && on { exit } on' CHANGELOG.md > notes.md
+          if [ ! -s notes.md ]; then echo "See CHANGELOG.md." > notes.md; fi
+
+      # Neither draft nor prerelease, or `releases/latest/download/module.json` skips it and Foundry
+      # never sees the new version.
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.zip
+            module.json
+          body_path: notes.md
+          draft: false
+          prerelease: false

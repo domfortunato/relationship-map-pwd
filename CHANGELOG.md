@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0
+
+- Tags under a name. Each person on a map can carry up to three short lines under their name, such as "deceased" or "The Iron Knight". Rest on a portrait and press the small pen that appears on its right, or double-click the name, type one tag per line and Save. The undo button takes it back. A group drawn round a tagged person, and the map's frame, reach down past the tags. "Hide labels" hides the words on the lines and leaves the tags, which belong to the person like the name does.
+- A person renamed in the Actors sidebar is renamed on every open map at once, and a changed picture or a deleted actor shows the same way, without reopening the window.
+- This version is domfortunato's build of PrinceWitherdick's 1.2.2 and installs from github.com/domfortunato/relationship-map-pwd. It keeps the module id, so existing maps carry on untouched.
+
 ## 1.2.2
 
 - A group shrunk to its smallest size by a corner stays where the corner put it, instead of jumping to the middle of its people.
