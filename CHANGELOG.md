@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1
+
+- A tag under a name may be twice as wide as the name, 216 px, before it is cut short; a group's outline and the map's frame widen to fit it.
+
 ## 1.3.0
 
 - Tags under a name. Each person on a map can carry up to three short lines under their name, such as "deceased" or "The Iron Knight". Rest on a portrait and press the small pen that appears on its right, or double-click the name, type one tag per line and Save. The undo button takes it back. A group drawn round a tagged person, and the map's frame, reach down past the tags. "Hide labels" hides the words on the lines and leaves the tags, which belong to the person like the name does.
