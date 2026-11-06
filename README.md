@@ -4,9 +4,11 @@ A shared board of who knows whom, for [Foundry Virtual Tabletop](https://foundry
 
 It works with any game system.
 
-This is [domfortunato's build](https://github.com/domfortunato/relationship-map-pwd) of [PrinceWitherdick's Relationship Map - by PWD](https://github.com/PrinceWitherdick/relationship-map-pwd), adding tags under a person's name. It keeps the original's module id, so a world moving from one build to the other keeps its maps.
-
 ![A relationship map: portraits joined by coloured, captioned lines, two named groups, map tabs along the top and the tools along the bottom](docs/images/relationship-map.webp)
+
+This is [domfortunato's build](https://github.com/domfortunato/relationship-map-pwd) of [PrinceWitherdick's Relationship Map - by PWD](https://github.com/PrinceWitherdick/relationship-map-pwd), adding tags under a person's name and a choice of side for the name and tags: below, above, left or right of the face. It keeps the original's module id, so a world moving from one build to the other keeps its maps.
+
+![A board in this build: names with tags such as "The Ring Knight" and "Ruler of Rexford", standing above, below, left and right of the faces, joined by captioned lines](docs/images/tags-and-sides.webp)
 
 **Documentation:** the [wiki](https://github.com/PrinceWitherdick/relationship-map-pwd/wiki) has a full guide, with pictures of every tool.
 
